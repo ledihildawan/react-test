@@ -1,0 +1,28 @@
+.details-header__container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding-bottom: 2rem;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
+}
+
+.details__info {
+  @media (min-width: 768px) {
+    max-width: 480px;
+  }
+
+  @media (min-width: 1024px) {
+    max-width: 768px;
+  }
+}
+
+.details__title {
+  margin-bottom: 1rem;
+}
+
+.details__date {
+  margin-top: 2rem;
+}
