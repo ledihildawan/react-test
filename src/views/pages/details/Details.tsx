@@ -1,16 +1,17 @@
 import "./Details.scss";
 
 import { useState, useEffect } from "react";
+import { removeTrailingS } from "../../../utils";
 import { useParams } from "react-router-dom";
 import { useGetDetailsQuery } from "../../../services/movies";
-import { removeTrailingS } from "../../../utils";
-
-import MainLayout from "../MainLayout";
-import Info from "../../../components/common/Info";
 import {
   ERROR as errorMsg,
   LOADING as loadingMsg,
 } from "../../../constants/message";
+
+import MainLayout from "../MainLayout";
+import Info from "../../../components/common/Info";
+import StarsRating from "react-star-rate";
 
 export default function Details() {
   const { menu, id } = useParams();
@@ -38,6 +39,12 @@ export default function Details() {
                   <h1 className="details__title">
                     {data.title || data.original_name}
                   </h1>
+
+                  <StarsRating
+                    value={data.vote_average / 2}
+                    onHoverChange={() => {}}
+                  />
+
                   <p className="details__overview">{data.overview}</p>
 
                   <p className="details__date">
